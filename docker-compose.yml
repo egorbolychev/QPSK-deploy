@@ -18,6 +18,7 @@ services:
   server:
     restart: unless-stopped
     build:
+      context: .
       dockerfile: ./docker/backend/Dockerfile
     links:
       - "db:db"
@@ -44,6 +45,7 @@ services:
   frontend:
     restart: always
     build:
+      context: .
       dockerfile: ./docker/frontend/Dockerfile
     depends_on:
       - server
@@ -63,6 +65,7 @@ services:
   worker:
     restart: unless-stopped
     build:
+      context: .
       dockerfile: ./docker/backend/Dockerfile
     links:
       - "db:db"
