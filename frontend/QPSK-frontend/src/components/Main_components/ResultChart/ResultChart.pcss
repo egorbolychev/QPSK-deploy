@@ -1,0 +1,45 @@
+.result-chart-container {
+    background: #136DC2;
+    height: calc(100vh - 60px);
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    overflow-y: hidden;
+
+    &__data {
+        width: 90%;
+
+
+        &__grid {
+            display: grid;
+            grid-auto-rows: 1fr;
+            grid-template-columns: 4fr 5fr;
+            grid-gap: 20px;
+
+            &__left {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+
+            h2 {
+                color: white;
+                font-size: 24px;
+                font-weight: 500;
+                line-height: 29px;
+                margin: 0 0 8px 0;
+            }
+        }
+
+        &__button {
+            margin: 15px 0 0 0;
+        }
+
+        &__chart-area {
+            border-radius: 12px 12px 0px 12px;
+            height: 400px;
+            background-color: white;
+        }
+    }
+}

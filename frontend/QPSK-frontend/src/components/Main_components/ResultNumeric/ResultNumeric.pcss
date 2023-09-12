@@ -1,0 +1,55 @@
+.result-numeric-container {
+    background: #136DC2;
+    height: calc(100vh - 60px);
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    &__data {
+        width: 60%;
+
+
+        &__grid {
+            display: grid;
+            grid-auto-rows: 1fr;
+            grid-template-columns: 2fr 3fr;
+            grid-gap: 0px;
+            margin-bottom: 40px;
+
+            h2 {
+                color: white;
+                font-size: 24px;
+                font-weight: 500;
+                line-height: 29px;
+                margin: 0 0 20px 0;
+            }
+        }
+
+        &__buttons {
+            display: flex;
+            gap: 20px;
+
+            &__item {
+                width: 100%;
+            }
+        }
+
+        &__answer {
+            padding: 16px 24px 16px 24px;
+            border-radius: 12px;
+            border: 2px solid #FFC541;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            h3 {
+                color: #FFC541;
+                font-size: 24px;
+                font-weight: 500;
+                line-height: 29px;
+                margin: 0;
+            }
+        }
+    }
+}

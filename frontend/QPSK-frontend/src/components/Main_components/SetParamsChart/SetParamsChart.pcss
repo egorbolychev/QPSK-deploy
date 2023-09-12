@@ -1,0 +1,37 @@
+.param-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__left {
+        display: flex;
+        justify-content: left;
+        gap: 10px;
+        color: red;
+    }
+}
+
+.param-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px;
+    max-height: 200px;
+
+    &__select{
+        margin: 10px 0px;
+    }
+
+    &__btn {
+        margin: 10px 0 25px 0;
+        display: flex;
+    }
+}
+
+.param-alert {
+    display: flex;
+    justify-content: right;
+
+    &__item {
+        max-width: 500px;
+    }
+}
