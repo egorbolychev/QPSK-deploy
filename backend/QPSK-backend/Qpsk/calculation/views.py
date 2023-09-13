@@ -4,14 +4,34 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.db.models import Q
 from celery.result import AsyncResult
+from django.shortcuts import get_object_or_404
+
 
 from .models import *
 from .serializers import *
 from .tasks import *
 
+
+class ProtocolDetail(APIView):
+
+    def get(self, request):
+        protocol = request.query_params.get("protocol", None)
+        if protocol is None:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
+        try:
+            int(protocol)
+        except ValueError:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
+
+        protocol = get_object_or_404(Protocol, pk=protocol)
+        serializer = ProtocolModelSerializer(protocol)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+
 class ProtocolList(ListAPIView):
     queryset = Protocol.objects.all()
     serializer_class = ProtocolModelSerializer
+
 
 class ProtocolParams(APIView):
     
@@ -36,7 +56,7 @@ class ProtocolParams(APIView):
 class Index(APIView):
 
     def post(self, request):
-        task = randomizer.delay(5)
+        task = randomizer.delay(20)
         data = {'task_id': task.id}
         return Response(data, status=status.HTTP_200_OK)
 

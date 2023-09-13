@@ -6,6 +6,7 @@ const stepSlice = createSlice({
         step: 1,
         dataFormat: "",
         protocol: "",
+        protocolName: "",
     },
     reducers: {
         setStep(state, action) {
@@ -20,9 +21,13 @@ const stepSlice = createSlice({
             state.protocol = action.payload.protocol
         },
 
+        setProtocolName(state, action) {
+            state.protocolName = action.payload.protocolName
+        },
+
     }
 })
 
-export const { setStep, setDataFormat, setProtocol } = stepSlice.actions;
+export const { setStep, setDataFormat, setProtocol, setProtocolName } = stepSlice.actions;
  
 export default stepSlice.reducer;

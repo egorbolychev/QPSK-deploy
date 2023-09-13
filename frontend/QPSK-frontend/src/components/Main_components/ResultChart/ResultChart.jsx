@@ -7,59 +7,12 @@ import Chart from "./Chart/Chart.jsx";
 import downloadjs from 'downloadjs';
 import html2canvas from 'html2canvas';
 import jsPDF from "jspdf";
-
-const mockData = [
-    {
-      x: 0,
-      y: 200,
-    },
-    {
-      x: 10,
-      y: 160,
-    },
-    {
-      x: 20,
-      y: 135,
-    },
-    {
-      x: 30,
-      y: 130,
-    },
-    {
-      x: 40,
-      y: 105,
-    },
-    {
-      x: 50,
-      y: 70,
-    },
-    {
-      x: 60,
-      y: 60,
-    },
-    {
-      x: 70,
-      y: 30,
-    },
-    {
-      x: 80,
-      y: 20,
-    },
-    {
-      x: 90,
-      y: 19,
-    },
-    {
-      x: 100,
-      y: 17,
-    },
-
-  ];
+import ChartType from './ChartTypes'
 
 const ResultChart = () => {
     const dispatch = useDispatch()
     const params = useSelector(state => state.params)
-    const [data, setData] = useState(mockData)
+    const protocolName = useSelector(state => state.step.protocolName)
       
     const downloadCSV = () => {
       
@@ -111,7 +64,7 @@ const ResultChart = () => {
                     </div>
 
                     <div id="node-to-download" className="result-chart-container__data__chart-area">
-                        <Chart data={data}/>
+                        <Chart data={ChartType(protocolName)}/>
                     </div>
                 </div>
 
