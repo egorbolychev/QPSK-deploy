@@ -22,7 +22,7 @@ const Calculation = () => {
         let url = API_SERVER + "/api/protocol_detail/?protocol=" + step.protocol 
         axios.get(url
         ).then(data => {
-            dispatch(setProtocolName({params: data.data.name}))
+            dispatch(setProtocolName({params: data.name}))
         })
       }
     
